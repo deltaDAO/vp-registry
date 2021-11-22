@@ -26,7 +26,7 @@ spec:
             - name: MONGO_PORT
               value: '27017'
             - name: SSIKIT_AUDITOR_URI
-              value: https://auditor.datamarketplace.walt.id
+              value: https://auditor.gaiax.delta-dao.com
           image: deltadao/vp-registry
           name: server
           ports:
