@@ -1,0 +1,78 @@
+paths:
+  /vp:
+    # [POST] Create VP
+    post:
+      tags:
+        - name: Verifiable Presentations
+      summary: Register a VP on the registry
+      parameters:
+        - name: signature
+          description: A signature from the account corresponding to the hashedMessage
+          in: formData
+          required: true
+          type: string
+        - name: hashedMessage
+          description: A message signed from the account registering the VP
+          in: formData
+          required: true
+          type: string
+        - name: fileUrl
+          description: The URL of the JSON-LD Verifiable Presentation
+          in: formData
+          required: true
+          type: string
+      responses:
+        201:
+          description: The Verifiable Presentation was successfully registered
+          content: application/json
+        409:
+          description: The Verifiable Presentation could not be registered
+          content: application/json
+  /vp/{address}:
+    # [GET] Get VP
+    get:
+      tags:
+        - name: Verifiable Presentations
+      summary: Retrieve a VP belonging to a public ETH address
+      parameters:
+        - name: address
+          description: The address a Verifiable Presentation belongs to
+          in: path
+          required: true
+          type: string
+      responses:
+        201:
+          description: The Verifiable Presentation belonging to the given address
+          content: application/json
+        409:
+          description: The Verifiable Presentation could not be found
+          content: application/json
+  /vp/{address}/verify:
+    # [GET] Get VP
+    get:
+      tags:
+        - name: Verifiable Presentations
+      summary: Verify a VP belonging to a public ETH address
+      parameters:
+        - name: address
+          description: The address the Verifiable Presentation belongs to
+          in: path
+          required: true
+          type: string
+      responses:
+        201:
+          description: The Verifiable Presentation was processed for verification via the auditor
+          content: application/json
+        409:
+          description: The Verifiable Presentation could not be processed for verification
+          content: application/json
+  /signature/message:
+    # [GET] Get a message to sign
+    get:
+      tags:
+        - name: Signatures
+      summary: Request a message from the registry to sign
+      responses:
+        200:
+          description: Message created and returned in response body
+          content: application/json

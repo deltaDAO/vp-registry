@@ -1,0 +1,17 @@
+{
+  "env": "production",
+  "dbConfig": {
+    "host": "mongo",
+    "database": "vp-registry",
+    "port": 27017
+  },
+  "secretKey": "secretKey",
+  "log": {
+    "format": "combined",
+    "dir": "../logs"
+  },
+  "cors": {
+    "origin": [".minimal-gaia-x.eu$", "-deltadao.netlify.app$"],
+    "credentials": true
+  }
+}

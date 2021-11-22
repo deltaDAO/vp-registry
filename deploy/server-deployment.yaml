@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.vpregistry: server
+  template:
+    metadata:
+      labels:
+        app.vpregistry: server
+    spec:
+      containers:
+        - env:
+            - name: PORT
+              value: '3000'
+            - name: MONGO_DATABASE
+              value: vp-registry
+            - name: MONGO_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: secrets
+                  key: MONGO_HOST
+            - name: MONGO_PORT
+              value: '27017'
+            - name: SSIKIT_AUDITOR_URI
+              value: https://auditor.datamarketplace.walt.id
+          image: deltadao/vp-registry
+          name: server
+          ports:
+            - containerPort: 3000
