@@ -4,6 +4,7 @@ const gaiaxUrl = process.env.GAIAX_URL
 const privateKey = process.env.Signer1PrivateKey
 const provider = new ethers.providers.JsonRpcProvider(gaiaxUrl)
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function deployContract() {
   const bytecode = ''
   const wallet = new ethers.Wallet(privateKey, provider)
