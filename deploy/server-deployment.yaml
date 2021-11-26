@@ -26,7 +26,24 @@ spec:
             - name: MONGO_PORT
               value: '27017'
             - name: SSIKIT_AUDITOR_URI
-              value: https://auditor.datamarketplace.walt.id
+              value: https://auditor.gaiax.delta-dao.com
+            - name: GAIAX_URL
+              value: https://rpc.gaiaxtestnet.oceanprotocol.com:443
+            - name: Signer1Address
+              value: '0x07c6f28a65dd059c2b726b4eb7bda744942beac4'
+            - name: Signer1PrivateKey
+              valueFrom:
+                secretKeyRef:
+                  name: secrets
+                  key: SIGNER_KEY
+            - name: ContractAddress
+              value: '0xFB9a956c4875826a76d47C360234FC1633C078A8'
+            - name: ContractAddress_Registry
+              value: '0xFB9a956c4875826a76d47C360234FC1633C078A8'
+            - name: ContractAddress_RecoverSigner
+              value: '0xb2f902825D87efEE4E3eF6873b071F7FA86ca9aB'
+            - name: MAX_GAS_LIMIT
+              value: '6666666'
           image: deltadao/vp-registry
           name: server
           ports:
