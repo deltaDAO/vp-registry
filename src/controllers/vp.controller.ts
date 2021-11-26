@@ -15,10 +15,6 @@ class VpController {
   public verificationService = new VerificationService()
   public registryService = new RegistryService()
 
-  constructor() {
-    console.log(`construct vp controller`)
-  }
-
   public getVpByAddress = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const address = VpController.getRequestAddress(req)

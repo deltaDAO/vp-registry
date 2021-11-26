@@ -12,7 +12,6 @@ class IndexRoute implements Routes {
   }
 
   private initializeRoutes() {
-    console.log(`init routes: ${this.path}`)
     this.router.get(`${this.path}`, this.indexController.index)
   }
 }

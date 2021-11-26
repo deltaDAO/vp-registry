@@ -12,7 +12,6 @@ class SignatureRoute implements Routes {
   }
 
   private initializeRoutes() {
-    console.log(`init routes: ${this.path}`)
     this.router.get(`${this.path}/message`, this.signatureController.getMessageToSign)
   }
 }

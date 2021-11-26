@@ -10,12 +10,10 @@ class VpRoute implements Routes {
   public vpController = new VpController()
 
   constructor() {
-    console.log(`construct route: ${this.path}`)
     this.initializeRoutes()
   }
 
   private initializeRoutes() {
-    console.log(`init routes: ${this.path}`)
     this.router.get(`${this.path}/:address`, this.vpController.getVpByAddress)
     this.router.post(`${this.path}`, validationMiddleware(CreateVpDto, 'body'), this.vpController.registerVp)
     this.router.get(`${this.path}/:address/verify`, this.vpController.verifyVp)
