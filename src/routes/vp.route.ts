@@ -10,6 +10,7 @@ class VpRoute implements Routes {
   public vpController = new VpController()
 
   constructor() {
+    console.log(`construct route: ${this.path}`)
     this.initializeRoutes()
   }
 
