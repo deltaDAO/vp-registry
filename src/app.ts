@@ -22,14 +22,20 @@ class App {
   public env: string
 
   constructor(routes: Routes[]) {
+    console.log(`creating app...`)
     this.app = express()
     this.port = process.env.PORT || 3000
     this.env = process.env.NODE_ENV || 'development'
 
+    console.log(`connect to database...`)
     this.connectToDatabase()
+    console.log(`init middleware...`)
     this.initializeMiddlewares()
+    console.log(`init routes...`)
     this.initializeRoutes(routes)
+    console.log(`init swagger...`)
     this.initializeSwagger()
+    console.log(`init error handling...`)
     this.initializeErrorHandling()
   }
 
