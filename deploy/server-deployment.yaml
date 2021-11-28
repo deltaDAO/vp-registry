@@ -41,7 +41,7 @@ spec:
               value: '0xb2f902825D87efEE4E3eF6873b071F7FA86ca9aB'
             - name: MAX_GAS_LIMIT
               value: '6666666'
-          image: deltadao/vp-registry:0.1.0
+          image: deltadao/vp-registry:0.1.1
           name: server
           ports:
             - containerPort: 3000
