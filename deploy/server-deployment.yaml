@@ -19,10 +19,7 @@ spec:
             - name: MONGO_DATABASE
               value: vp-registry
             - name: MONGO_HOST
-              valueFrom:
-                secretKeyRef:
-                  name: secrets
-                  key: MONGO_HOST
+              value: mongo
             - name: MONGO_PORT
               value: '27017'
             - name: SSIKIT_AUDITOR_URI

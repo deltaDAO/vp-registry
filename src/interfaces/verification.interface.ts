@@ -1,5 +1,5 @@
 export interface SsikitAuditorVerfifyResponse {
-  overallStatus: boolean
+  valid: boolean
   policyResults: {
     [policyName: string]: boolean
   }

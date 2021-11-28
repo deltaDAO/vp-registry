@@ -19,7 +19,7 @@ class VerificationService {
         return axios
           .post(auditorUri, jsonResponse.data)
           .then(res => {
-            logger.log('info', `Got response for vp verification from ${auditorUri}`, res.data)
+            logger.log('info', `Got response for vp verification from ${auditorUri}`)
 
             const isVerifiedByAuditor = this.isVerifiedByAuditor(res.data)
 
@@ -42,7 +42,7 @@ class VerificationService {
   }
 
   private isVerifiedByAuditor(auditorResponse: SsikitAuditorVerfifyResponse): boolean {
-    return auditorResponse.overallStatus
+    return auditorResponse.valid
   }
 }
 
