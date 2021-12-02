@@ -1,7 +1,7 @@
 import { VerifyResponse } from '../interfaces/verification.interface'
 import { isEmpty } from '../utils/util'
 
-class VerifyResonse {
+class VerifiedResponse {
   private verified: boolean
   private message: string
 
@@ -18,4 +18,4 @@ class VerifyResonse {
   }
 }
 
-export default VerifyResonse
+export default VerifiedResponse
