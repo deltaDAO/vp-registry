@@ -84,7 +84,8 @@ class App {
 
   private initializeMiddlewares() {
     this.app.use(morgan(config.get('log.format'), { stream }))
-    this.app.use(cors(this.prepareCorsOptions()))
+    // TODO: reintroduce cors
+    //this.app.use(cors(this.prepareCorsOptions()))
     this.app.use(hpp())
     this.app.use(helmet())
     this.app.use(compression())
