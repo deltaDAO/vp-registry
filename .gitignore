@@ -118,4 +118,5 @@ dist
 .pnp.*
 
 # k8 secrets
+k8s/secret*
 deploy/secret*
