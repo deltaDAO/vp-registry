@@ -29,18 +29,18 @@ class VpController {
   public registerVp = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const vpData: CreateVpDto = req.body
-      const verification = await this.verificationService.verifyVp(vpData.fileUrl)
 
-      if (!verification.verified) {
-        // TODO adjust message for error handling from verification service
-        next(new HttpException(400, 'Verifiable Presentation invalid'))
+      const address: string | undefined = await this.registryService.recoverSigner(vpData.hashedMessage, vpData.signature)
+      if (address === undefined) {
+        next(new HttpException(400, 'Signature does not match with hashed message'))
         return
       }
 
-      const address: string | undefined = await this.registryService.recoverSigner(vpData.hashedMessage, vpData.signature)
+      const verification = await this.verificationService.verifyVp(vpData.fileUrl, address)
 
-      if (address === undefined) {
-        next(new HttpException(400, 'Signature does not match with hashed message'))
+      if (!verification.verified) {
+        // TODO adjust message for error handling from verification service
+        next(new HttpException(400, verification.message || 'Verifiable Presentation invalid'))
         return
       }
 

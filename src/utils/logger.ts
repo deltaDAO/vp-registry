@@ -46,6 +46,11 @@ const logger = winston.createLogger({
       handleExceptions: true,
       json: false,
       zippedArchive: true
+    }),
+    // console logging
+    new winston.transports.Console({
+      level: 'error',
+      handleExceptions: true
     })
   ]
 })
